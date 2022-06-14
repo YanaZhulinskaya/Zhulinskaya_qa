@@ -1,4 +1,4 @@
-package com.company;
+
 package MyProjectCalc;
 import java.util.Scanner;
 
