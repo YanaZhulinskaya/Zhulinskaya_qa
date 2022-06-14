@@ -1,5 +1,5 @@
+package com.company;
 
-package MyProjectCalc;
 import java.util.Scanner;
 
 enum NumberType{arabic, roman}
