@@ -3,7 +3,7 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+class Main {
     static Scanner scanner = new Scanner(System.in);
     static int num;
     static char chars;
@@ -26,6 +26,7 @@ public class Main {
             String st01 = values[1];
             String st04 = values[4];
             result = getCalculate(st01, st04, chars);
+
             if (result.length() <= 40) {
                 System.out.println(result);
             } else {
@@ -35,13 +36,12 @@ public class Main {
         } else {
             String st01 = values[1];
             String st03 = values[3];
-            if (Integer.parseInt(st03) > 10) {
-                if(Integer.parseInt(st03) <1) {
-                    throw new Exception("Неверно");
-                }
-            }
             num = Integer.parseInt(st03);
             result = getCount(st01, num, chars);
+            if (num > 10 | num < 1) {
+                throw new Exception("Неверно");
+            }
+
             if (result.length() <= 40) {
                 System.out.println(result);
             } else {
@@ -75,11 +75,11 @@ public class Main {
         switch (operation) {
             case '+' -> result = num1 + num2;
             case '-' -> {
-                int res1 = num1.length() - num2.length();
-                if (num1.length() == num2.length()) {
-                    result = "0";
-                } else {
-                    result = num1.substring(0, res1);
+                result = num1.replaceAll(num2, "");
+                {
+                    if (num1.length() == num2.length()) {
+                        result = "0";
+                    }
                 }
             }
             case '*', '/' -> System.out.println("Неверно");
